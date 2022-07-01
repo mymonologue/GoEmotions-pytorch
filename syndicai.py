@@ -1,4 +1,5 @@
 import torch
+import run_goemotions
 
 
 class PythonPredictor:
@@ -10,5 +11,5 @@ class PythonPredictor:
         """ Run a model based on url input. """
 
         # Inference
-        response = self.model(payload["text"])
+        response = run_goemotions(payload["text"])
         return response
