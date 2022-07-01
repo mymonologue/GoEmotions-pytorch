@@ -8,16 +8,17 @@ class PythonPredictor:
         """ Download pretrained model. """
         model = AutoModelForSequenceClassification.from_pretrained("monologg/bert-base-cased-goemotions-original")
         tokenizer = AutoTokenizer.from_pretrained("monologg/bert-base-cased-goemotions-original")
-        classifier = pipeline("text-classification", model=model, tokenizer=tokenizer)
+        sentiment_classifier = pipeline("text-classification", model=model, tokenizer=tokenizer)
         self.model = model
         self.tokenizer = tokenizer
-        self.classifier = classifier
+        self.sentiment_classifier = sentiment_classifier
         
 
     def predict(self, payload):
         """ Run a model based on url input. """
 
         # Inference
-        
-        response = self.classifier(payload["text"])
+        text_to_classify = "I love Beyonce"
+        response = self.sentiment_classifier(text_to_classify)
+      
         return response
