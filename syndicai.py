@@ -10,5 +10,5 @@ class PythonPredictor:
         """ Run a model based on url input. """
 
         # Inference
-        response = payload["text"]
+        response = self.model(payload["text"])
         return response
