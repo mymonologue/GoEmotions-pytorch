@@ -9,8 +9,6 @@ class PythonPredictor:
         model = AutoModelForSequenceClassification.from_pretrained("monologg/bert-base-cased-goemotions-original")
         tokenizer = AutoTokenizer.from_pretrained("monologg/bert-base-cased-goemotions-original")
         sentiment_classifier = pipeline("text-classification", model=model, tokenizer=tokenizer)
-        self.model = model
-        self.tokenizer = tokenizer
         self.sentiment_classifier = sentiment_classifier
         
 
